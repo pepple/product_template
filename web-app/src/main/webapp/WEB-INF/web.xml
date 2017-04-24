@@ -61,22 +61,10 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-    <servlet>
-        <servlet-name>SimpleServlet</servlet-name>
-        <servlet-class>com.cnblogs.knee.SimpleServlet</servlet-class>
-    </servlet>
-
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>SimpleServlet</servlet-name>
-        <url-pattern>/simple-servlet</url-pattern>
-    </servlet-mapping>
-
-
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

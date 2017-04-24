@@ -13,9 +13,37 @@
     <mvc:annotation-driven/>
 
     <!-- 静态资源映射 此处/表示项目根路径-->
-    <mvc:resources mapping="/css/**" location="/statics/css/"/>
-    <mvc:resources mapping="/js/**" location="/statics/js/"/>
-    <mvc:resources mapping="/image/**" location="/statics/image/"/>
+    <mvc:resources mapping="/css/**" location="/statics/css/" cache-period="120">
+        <mvc:resource-chain resource-cache="true">
+            <mvc:resolvers>
+                <bean class="org.springframework.web.servlet.resource.GzipResourceResolver"/>
+            </mvc:resolvers>
+        </mvc:resource-chain>
+    </mvc:resources>
+    <mvc:resources mapping="/js/**" location="/statics/js/" cache-period="3600">
+        <mvc:resource-chain resource-cache="true">
+            <mvc:resolvers>
+                <bean class="org.springframework.web.servlet.resource.GzipResourceResolver"/>
+            </mvc:resolvers>
+        </mvc:resource-chain>
+    </mvc:resources>
+    <mvc:resources mapping="/image/**" location="/statics/image/" cache-period="3600">
+        <mvc:resource-chain resource-cache="true">
+            <mvc:resolvers>
+                <bean class="org.springframework.web.servlet.resource.GzipResourceResolver"/>
+            </mvc:resolvers>
+        </mvc:resource-chain>
+    </mvc:resources>
+    <mvc:resources mapping="/resources/**" location="/statics/resources/" cache-period="3600">
+        <mvc:resource-chain resource-cache="true">
+            <mvc:resolvers>
+                <bean class="org.springframework.web.servlet.resource.GzipResourceResolver"/>
+            </mvc:resolvers>
+        </mvc:resource-chain>
+    </mvc:resources>
+
+    <!-- 控制对没有做静态资源映射的资源访问,不配置这个直接访问view/下的html时会404 -->
+    <mvc:default-servlet-handler/>
 
     <!-- 默认视图解析器 -->
     <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
