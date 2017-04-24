@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <link rel="stylesheet" href="../resources/css/ext-all.css">
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/ext-lang-zh_CN.js"></script>
+    <style>
+        /* 在此插入样式代码 */
+        #op {
+            width: 1000px;
+            height: 20px;
+            line-height: 20px;
+            display: block;
+        }
+
+        #op a {
+            float: left;
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        #op span {
+            float: right;
+        }
+
+        .clear {
+            clear: both;
+            line-height:0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        tr {
+            border-bottom: 1px solid #cdcdcd;
+        }
+
+        th {
+            background: #cdcdcd;
+            text-align: center;
+        }
+
+        td {
+            width: 80px;
+            text-align: center;
+        }
+
+        td.center {
+            text-align: center;
+        }
+
+        .selected {
+            background: #ddffff;
+        }
+
+        #tabs {
+            width: 600px;
+            height: 20px;
+            font-size: 14px;
+            line-height: 20px;
+            display: block;
+            margin: auto;
+            background: #d9d9d9;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        #tabs ul {
+            list-style: none;
+        }
+        
+        #tabs li {
+            float: left;
+            width: 80px;
+            text-align: center;
+            display: block;
+            cursor: pointer;
+        }
+
+        #tabs .active {
+            border-left: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-top: 1px solid #e0e0e0;
+            background: white;
+        }
+
+        #tabContent {
+            width: 600px;
+            margin: auto;
+            border-left: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            height: 330px;
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!-- 在此插入Html代码 -->
+<script>
+    Ext.Loader.setConfig({enabled: true});
+    Ext.Loader.setPath({
+        "My" : "../js"
+    });
+    Ext.require([
+        "My.HKStock"
+    ]);
+
+    Ext.onReady(function(){
+        if(Ext.BLANK_IMAGE_URL.substr(0,4) != 'data') {
+            Ext.BLANK_IMAGE_URL = './images/s.gif';
+        }
+        //在此添加Ext JS代码
+        Ext.create("My.HKStock",{
+            code : ["00941","00762","00728","01288","01398"]
+        });
+    });
+</script>
+
+</body>
+</html>
